@@ -11,9 +11,118 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/qedback.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="css/qedback.css"/>-->
     <title>Backbone Sample Product Catalog</title>
 </head>
 <body>
+<nav id="topnav" class="navbar navbar-default navbar-static-top">
+    <div class="navbar-header">
+        <button type="button" 
+                class="navbar-toggle" 
+                data-toggle="collapse" 
+                data-target="#navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a id="navbar-brand-link" class="navbar-brand">Shakespeare Demo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li>
+                <a id="playNavLink">Plays</a>
+            </li>
+            <li>
+                <a id="speakerNavLink">Speakers</a>
+            </li>
+        </ul>
+        <!--
+        <form class="navbar-form navbar-right">
+            <div class="form-group">
+                <input id="searchinput" type="text" class="form-control" placeholder="Search">
+            </div>
+            <div id="search-nav-btn-holder" class="btn-group">
+                <a class="search-btn btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Search
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="search-btn search-product">Search Products</a>
+                    </li>
+                    <li>
+                        <a class="search-btn search-category">Search Categories</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="search-nav-btn-products" class="btn-group" style="display: none">
+                <a class="search-btn btn btn-default search-product">Search Products</a>
+                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="search-btn search-category">Search Categories</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="search-nav-btn-categories" class="btn-group" style="display: none">
+                <a class="btn btn-default search-btn search-category">Search Categories</a>
+                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="search-btn search-product">Search Products</a>
+                    </li>
+                </ul>
+            </div>
+        </form>
+        -->
+    </div>
+</nav>
+
+
+<div id="mainAnchorPoint">
+    <!-- main area for inserting html -->
+</div>
+
+
+<script id="template-landing" type="template">
+    <div class="jumbotron">
+        <h1>Welcome!</h1>
+
+        <h2>Shakespeare Demo</h2>
+
+        <p class="lead">Because I really like the Bard.</p>
+        Pop quiz:  Where was Shakespeare born?
+        <a class="btn btn-lg btn-success" title="Did you know?" data-toggle="popover"
+           data-delay="50" data-trigger="click" data-content="Shakespeare was born at Stratford-upon-Avon.">
+            Find the answer
+        </a>
+    </div>
+</script>
+
+<script id="template-plays" type="template">
+    <ul id="playsList" class="list-group">
+    </ul>
+</script>
+
+<script id="template-play" type="template">
+    <li class="list-group-item">
+        <a href="#play/c<%=id%>"><%-name%></a>
+    </li>
+</script>
+
+
 </body>
+
+<script src="js/shakes.js"></script>
+<script src="js/views/navigationbar.js"></script>
+<script src="js/views/landing.js"></script>
+<script src="js/views/mainanchor.js"></script>
+<script src="js/router/mainrouter.js"></script>
+
+
 </html>
