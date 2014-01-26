@@ -1,5 +1,7 @@
 xquery version '1.0-ml';
 
+import module namespace search-lib = "http://www.marklogic.com/tutorial2/search-lib" 
+        at "/modules/search-lib.xqy";
 import module namespace json = "http://marklogic.com/xdmp/json" 
     at "/Marklogic/json/json.xqy";
 
@@ -8,9 +10,12 @@ let $result :=
 
     (<speakers>
     {
-        for $i in fn:distinct-values(collection()//SPEAKER) 
+        for $speaker in fn:distinct-values(collection()//SPEAKER) 
+        let $count := fn:count(search-lib:find-speech($speaker))
+        where $speaker 
+        order by $count descending
         return (
-            <speaker name="{$i}"/>
+            <speaker name="{$speaker}" count="{$count}"/>
         )
     }
     </speakers>)

@@ -1,5 +1,5 @@
-App.Views.Play = Backbone.View.extend({
-    template: _.template($('#template-play').html()),
+App.Views.Speaker = Backbone.View.extend({
+    template: _.template($('#template-speaker').html()),
     $container: null,
     initialize: function(options) {
         _.bindAll(this, 'render', 'insert');
@@ -11,7 +11,7 @@ App.Views.Play = Backbone.View.extend({
     },
     render: function() {
         var attr = this.model.attributes || 'not set';
-        console.log('rendering play ' + attr);
+        console.log('rendering speaker ' + attr);
         this.$el.html(this.template(this.model.attributes));
         return this;
     },

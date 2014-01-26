@@ -3,6 +3,7 @@ App.Models.Play = Backbone.Model.extend({
         name: '',
         uri: ''
     },
+    idAttribute: "uri",
     validate: function(attrs) {
         if (!attrs) {
             return 'no attributes set';

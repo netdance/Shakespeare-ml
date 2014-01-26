@@ -116,6 +116,46 @@
 </script>
 
 
+<script id="template-speakers" type="template">
+    <ul id="speakersList" class="list-group">
+    </ul>
+</script>
+
+<script id="template-speaker" type="template">
+    <li class="list-group-item">
+        <a href="#speaker/sp<%-name%>"><%-name%></a> <span class="pull-right"><%-count%></span>
+    </li>
+</script>
+
+<!-- change to list for now
+<script id="template-speakers" type="template">
+    <div id="speakersList" class="panel">
+    </div>
+    <div class="panel">
+        <div class="panel-body">
+            <span class="col-xs-12">Name</span>
+        </div>
+    </div>
+</script>
+
+<script id="template-speakers-header" type="template">
+    <div class="panel">
+        <div class="panel-body">
+            <span class="col-xs-12">Name</span>
+        </div>
+    </div>
+</script>
+
+<script id="template-speaker" type="template">
+    <div class="panel">
+        <div class="panel-body">
+            <span class="col-xs-12"><%-name%></span>
+        </div>
+    </div>
+</script>
+
+-->
+
 </body>
 
 <script src="js/shakes.js"></script>
@@ -124,8 +164,12 @@
 <script src="js/views/mainanchor.js"></script>
 <script src="js/views/plays.js"></script>
 <script src="js/views/play.js"></script>
+<script src="js/views/speakers.js"></script>
+<script src="js/views/speaker.js"></script>
 <script src="js/models/play.js"></script>
+<script src="js/models/speaker.js"></script>
 <script src="js/collections/plays.js"></script>
+<script src="js/collections/speakers.js"></script>
 <script src="js/router/mainrouter.js"></script>
 
 

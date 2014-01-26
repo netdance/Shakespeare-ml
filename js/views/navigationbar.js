@@ -16,7 +16,7 @@ App.Views.NavigationBar = Backbone.View.extend({
         });
     },
     onSpeakerClick: function () {
-        App.browser.navigate('/speaker', {
+        App.browser.navigate('/speakers', {
             trigger: true
         });
     }
