@@ -5,15 +5,11 @@ App.Routers.Main = Backbone.Router.extend({
         'home': 'home',
         '': 'home'
     },
-    plays: function(cat,search,page) {
+    plays: function() {
         console.log('in plays router');
-        /*
-        var collection = new App.Collections.Products({
-            page: page,
-            cat: cat,
-            search: search
-        });
-        var listView = new App.Views.Products({
+        
+        var collection = new App.Collections.Plays();
+        var listView = new App.Views.Plays({
             collection: collection,
             $container: App.mainAnchor.$el
         });
@@ -24,7 +20,6 @@ App.Routers.Main = Backbone.Router.extend({
         collection.fetch({
             reset: true
         });
-        */
     },
     home: function() {
         console.log('in home router');

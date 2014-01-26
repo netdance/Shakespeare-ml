@@ -13,7 +13,7 @@ xdmp:set-response-content-type("text/html"),
             where $title
             return (
                 <li>
-                    <a href="displayplay.xqy?uri={xdmp:url-encode(document-uri($i))}">
+                    <a href="./displayplay.xqy?uri={xdmp:url-encode(document-uri($i))}">
                         {$title}
                     </a>
                 </li>

@@ -11,7 +11,7 @@ App.Views.NavigationBar = Backbone.View.extend({
         });
     },
     onPlayClick: function () {
-        App.browser.navigate('/play', {
+        App.browser.navigate('/plays', {
             trigger: true
         });
     },

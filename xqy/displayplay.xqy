@@ -3,7 +3,7 @@ let $uri := xdmp:get-request-field("uri")
 return
     if (empty($uri) or $uri eq "") then
     (
-        xdmp:redirect-response("listplays.xqy")
+        xdmp:redirect-response("./listplays.xqy")
     )
     else 
     (
