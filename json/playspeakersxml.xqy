@@ -1,5 +1,7 @@
 xquery version '1.0-ml';
 
+(: example uri "/content/Users/jimdriscoll/Dropbox/XML Sampledata/shaks200/as_you.xml" :)
+
 declare variable $uri := xdmp:get-request-field("uri");
 
 
