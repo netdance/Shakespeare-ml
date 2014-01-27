@@ -8,7 +8,7 @@ It is NOT complete as of yet, and is full of both architectural and functional b
 
 clone this git repo to a local directory.
 
-download marklogic, and install the Shakespreare sample data.  Point the Marklogic install to the cloned git repo.
+download marklogic, and install the Shakespreare sample data.  Point the Marklogic install to the cloned git repo.  Add a range index on SPEAKER.
 
 run bower install to add the runtime dependencies. (Don't have bower?  install it with npm first.)
 
