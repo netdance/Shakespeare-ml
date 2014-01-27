@@ -5,7 +5,7 @@ xdmp:set-response-content-type("text/html"),
         <title>Play List</title>
     </head>
         {
-            for $play in doc()//PLAY/TITLE/text()
+            for $play in //PLAY/TITLE/string()
             order by $play
             return <h3>{$play}</h3>
         }
