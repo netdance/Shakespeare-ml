@@ -3,27 +3,28 @@ xquery version '1.0-ml';
 import module namespace json = "http://marklogic.com/xdmp/json" 
     at "/Marklogic/json/json.xqy";
 
+(:declare variable $uri := "/content/Users/jimdriscoll/Dropbox/XML Sampledata/shaks200/as_you.xml";:)
 declare variable $uri := xdmp:get-request-field("uri");
 
 xdmp:set-response-content-type("application/json"),
 let $result :=
 
-    (<speakers>
+    <speakers>
     {
-        for $speaker in 
+        (for $speaker in 
            if (not($uri eq "") and fn:doc-available($uri)) 
            then 
-             (cts:element-values(xs:QName("SPEAKER"),"","item-frequency",cts:document-query($uri))) 
+             cts:element-values(xs:QName("SPEAKER"),"","item-frequency",cts:document-query($uri))
            else 
-             (cts:element-values(xs:QName("SPEAKER"),"","item-frequency"))
+             cts:element-values(xs:QName("SPEAKER"),"","item-frequency")
         let $count := cts:frequency($speaker)
         where $speaker 
         order by $count descending
-        return (
+        return 
             <speaker name="{$speaker}" count="{$count}"/>
-        )
+        )[1 to 200]  (: TODO: Add paging :)
     }
-    </speakers>)
+    </speakers>
     
  return  
     let $c := json:config("custom"),
