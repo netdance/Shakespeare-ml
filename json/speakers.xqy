@@ -1,7 +1,5 @@
 xquery version '1.0-ml';
 
-import module namespace search-lib = "http://www.marklogic.com/tutorial2/search-lib" 
-        at "/modules/search-lib.xqy";
 import module namespace json = "http://marklogic.com/xdmp/json" 
     at "/Marklogic/json/json.xqy";
 
@@ -10,8 +8,8 @@ let $result :=
 
     (<speakers>
     {
-        for $speaker in fn:distinct-values(collection()//SPEAKER) 
-        let $count := fn:count(search-lib:find-speech($speaker))
+        for $speaker in cts:element-values(xs:QName("SPEAKER"),"","item-frequency")
+        let $count := cts:frequency($speaker)
         where $speaker 
         order by $count descending
         return (
@@ -22,8 +20,8 @@ let $result :=
     
  return  
     let $c := json:config("custom"),
-        (:$x := map:put($c,"whitespace","ignore"),:)
+        (:$x := map:put($c,"whitespace","ignore"), :)
         $x := map:put($c,"array-element-names",xs:QName("speaker")),
-        $x := map:put($c,"camel-case",fn:true()),
+        (: $x := map:put($c,"camel-case",fn:true()), :)
         $j := json:transform-to-json($result,$c)
     return $j
