@@ -6,8 +6,7 @@ declare variable $uri := xdmp:get-request-field("uri");
 
 
 xdmp:set-response-content-type("application/xml"),
-('<?xml version="1.0" encoding="UTF-8"?>',
-
+(
     <play:play xmlns:play="http://plays" xml:lang="en"> 
 
     {
