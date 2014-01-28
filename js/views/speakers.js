@@ -1,6 +1,7 @@
 App.Views.Speakers = Backbone.View.extend({
     collection: null,
     $container: null,
+    playURI: null,
     attributes: {
         class: 'container'
     },
@@ -11,6 +12,9 @@ App.Views.Speakers = Backbone.View.extend({
         "use strict";
         _.bindAll(this, 'render', 'insert', 'refresh', 'close','destroySubviews');
         console.log('initializing speakers view');
+        if (options.play) {
+            this.playURI = options.play;
+        }
         this.collection = options.collection;
         this.$container = options.$container;
         this.listenTo(this.collection, 'reset', this.render);
@@ -41,6 +45,7 @@ App.Views.Speakers = Backbone.View.extend({
         this.collection.each(function(speaker) {
             console.log('creating/rendering speaker ' + speaker.attributes.name);
             var newSpeakerRow = new App.Views.Speaker({
+                playURI: owningView.playURI,
                 model: speaker,
                 $container: $container
             });

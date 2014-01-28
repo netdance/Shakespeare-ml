@@ -14,6 +14,7 @@ App.Routers.Main = Backbone.Router.extend({
             play: decodedPlay
         });
         var listView = new App.Views.Speakers({
+            play: play,
             collection: collection,
             $container: App.mainAnchor.$el
         });
