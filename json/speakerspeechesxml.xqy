@@ -7,7 +7,7 @@ xdmp:set-response-content-type("application/xml"),
 (
     <result>
     {
-        for $speakerplay in /PLAY[//SPEAKER = $query]
+        for $speakerplay in /PLAY[.//SPEAKER = $query]
           let $title := $speakerplay/TITLE/string(),
               $uri := base-uri($speakerplay)
         return (
@@ -15,7 +15,7 @@ xdmp:set-response-content-type("application/xml"),
           <title>{$title}</title>
           <uri>{xdmp:url-encode($uri)}</uri>
           {
-            for $line in $speakerplay//SPEAKER[. = $query]/parent::SPEECH/LINE/string()
+            for $line in $speakerplay//SPEECH[./SPEAKER = $query]/LINE/string()
             return <line>{$line}</line>
           }
           </play>
