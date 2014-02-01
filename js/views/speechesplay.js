@@ -27,7 +27,6 @@ App.Views.SpeechesPlay = Backbone.View.extend({
             $list.append(linetemplate({line: line}));
             console.log('list html: '+$list.html());
         });
-
         return this;
     },
     insert: function() {
@@ -49,4 +48,3 @@ App.Views.SpeechesPlay = Backbone.View.extend({
         $list.slideToggle();
     }
 });
-
