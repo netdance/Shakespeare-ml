@@ -128,6 +128,20 @@
     </li>
 </script>
 
+<script id="template-playspeech" type="template">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="#play/p/<%=uri%>"><%-title%></a>
+            <span class="glyphicon glyphicon-minus pull-right speech-expander"></span>
+        </div>
+        <ul class="list-group">
+        </ul>
+    </div> 
+</script>
+<script id="template-speechline" type="template">
+    <li class="list-group-item"><%-line%></li>
+</script>
+
 <!-- change to list for now
 <script id="template-speakers" type="template">
     <div id="speakersList" class="panel">
@@ -167,10 +181,14 @@
 <script src="js/views/play.js"></script>
 <script src="js/views/speakers.js"></script>
 <script src="js/views/speaker.js"></script>
+<script src="js/views/speechesplay.js"></script>
+<script src="js/views/speeches.js"></script>
 <script src="js/models/play.js"></script>
 <script src="js/models/speaker.js"></script>
+<script src="js/models/speeches.js"></script>
 <script src="js/collections/plays.js"></script>
 <script src="js/collections/speakers.js"></script>
+<script src="js/collections/speeches.js"></script>
 <script src="js/router/mainrouter.js"></script>
 
 
