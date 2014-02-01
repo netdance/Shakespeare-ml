@@ -5,14 +5,21 @@ import module namespace json = "http://marklogic.com/xdmp/json"
     at "/Marklogic/json/json.xqy";
 
 (: declare variable $query := "FALSTAFF"; :)
+(:declare variable $uri := "/content/Users/jimdriscoll/Dropbox/XML+Sampledata/shaks200/hen_iv_2.xml";:)
 
 declare variable $query := xdmp:get-request-field("speaker");
+declare variable $uri := xdmp:get-request-field("uri");
 
 xdmp:set-response-content-type("application/json"),
 let $result :=
     <result>
     {
-        for $speakerplay in /PLAY[//SPEAKER = $query]
+        for $speakerplay in 
+          if (not($uri eq "") and fn:doc-available($uri)) 
+           then 
+            fn:doc($uri)/PLAY
+           else 
+            /PLAY[.//SPEAKER = $query]
           let $title := $speakerplay/TITLE/string(),
               $uri := base-uri($speakerplay)
         return (
