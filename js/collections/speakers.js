@@ -1,5 +1,6 @@
 App.Collections.Speakers = Backbone.Collection.extend({
     model: App.Models.Speaker,
+    play: null,
     baseurl: '/json/speakers.xqy?',
     url: function() {
         return this.baseurl + $.param({
